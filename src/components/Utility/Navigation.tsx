@@ -39,7 +39,7 @@ const Navigation = ({ label, icon, subNavigationList }: INavigationProps) => {
             <NavLink
               to="#"
               className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                (pathname.includes(label.split(" ")[0].toLowerCase())) && 'bg-graydark dark:bg-meta-4'
+                (pathname.includes(convertToSlug(label))) && 'bg-graydark dark:bg-meta-4'
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -76,7 +76,7 @@ const Navigation = ({ label, icon, subNavigationList }: INavigationProps) => {
                 {subNavigationList?.map((subMenu) => (
                   <SubNavigation
                     key={subMenu}
-                    href={`/${label.split(" ")[0].toLowerCase()}/${convertToSlug(subMenu)}`}
+                    href={`/${convertToSlug(label)}/${convertToSlug(subMenu)}`}
                     label={subMenu}
                   />
                 ))}

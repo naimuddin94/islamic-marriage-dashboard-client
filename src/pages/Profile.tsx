@@ -4,9 +4,6 @@ import { IoIosMail } from 'react-icons/io';
 import { RiWhatsappFill } from 'react-icons/ri';
 import CoverOne from '../images/cover/cover-01.png';
 import defaultUser from '../images/user/default_user.jpg';
-import { useEffect, useState } from 'react';
-import { ICustomer } from '../types/types';
-import { useParams } from 'react-router-dom';
 
 const Profile = () => {
 
@@ -100,7 +97,7 @@ const Profile = () => {
             <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
               Md Naim Uddin
             </h3>
-            <p className="font-medium">{roleFromBackend}</p>
+            <p className="font-medium">Admin</p>
             <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
               <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
                 <span className="font-semibold text-black dark:text-white">
@@ -126,7 +123,7 @@ const Profile = () => {
               <h4 className="font-semibold text-black dark:text-white">
                 About Me
               </h4>
-              <p className="mt-4.5">{userInfo?.bio}</p>
+              <p className="mt-4.5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quisquam hic sapiente labore rerum. Voluptas natus rerum iste eaque odio similique delectus provident a voluptatem id dicta, corrupti, aperiam quos!</p>
             </div>
 
             <div className="mt-6.5">

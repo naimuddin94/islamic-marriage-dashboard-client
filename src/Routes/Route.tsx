@@ -1,26 +1,24 @@
 import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from '../layout/RootLayout';
-import SigninPage from '../pages/SigninPage';
 import NotFound from '../pages/NotFound';
-import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoute';
 import Profile from '../pages/Profile';
 import ViewProfile from '../pages/ViewProfile';
 import Home from '../pages/Home';
+import AddUser from '../components/Client/AddUser';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <PrivateRoute>
-        <RootLayout />
-      </PrivateRoute>
-    ),
+    element: <RootLayout />,
     errorElement: <NotFound />,
     children: [
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/client/add-user',
+        element: <AddUser />,
       },
       {
         path: '/payments/stripe-payment',
@@ -95,15 +93,7 @@ const router = createBrowserRouter([
         element: <ViewProfile />,
       },
     ],
-  },
-  {
-    path: '/signin',
-    element: (
-      <PublicRoute>
-        <SigninPage />
-      </PublicRoute>
-    ),
-  },
+  }
 ]);
 
 export default router;

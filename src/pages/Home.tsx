@@ -1,4 +1,3 @@
-import { CiUser } from 'react-icons/ci';
 import Card from '../components/shared/Card';
 
 const Home = () => {

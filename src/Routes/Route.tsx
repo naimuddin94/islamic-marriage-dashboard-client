@@ -37,148 +37,20 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        path: '/',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader', 'customer']}>
-            <ECommerce />
-          </ProtectRoute>
-        ),
+        path: '/massages/unread-massages',
+        element: <div>Unread massages page</div>,
       },
       {
-        path: '/add-leader',
-        element: (
-          <ProtectRoute protectedBy={['admin']}>
-            <LeaderForm />
-          </ProtectRoute>
-        ),
+        path: '/massages/read-massages',
+        element: <div>Read massages page</div>,
       },
       {
-        path: '/manage-leader',
-        element: (
-          <ProtectRoute protectedBy={['admin']}>
-            <ManageLeader />
-          </ProtectRoute>
-        ),
-        loader: () => axiosBase.get('/leaders'),
+        path: '/contact/uncheck-request',
+        element: <div>This is unchecked request page</div>,
       },
       {
-        path: '/update-leader/:email',
-        element: (
-          <ProtectRoute protectedBy={['admin']}>
-            <UpdateLeader />
-          </ProtectRoute>
-        ),
-        loader: async ({ params }) => {
-          const res = await axiosBase.get(`/leaders/${params.email}`);
-          return res.data;
-        },
-      },
-      {
-        path: '/add-customer',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader']}>
-            <CustomerForm />
-          </ProtectRoute>
-        ),
-        loader: () => axiosBase.get('/leaders'),
-      },
-      {
-        path: 'manage-customers',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader']}>
-            <ManageCustomer />
-          </ProtectRoute>
-        ),
-        loader: () => axiosBase.get('/customers'),
-      },
-      {
-        path: '/update-customer/:email',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader']}>
-            <UpdateCustomer />
-          </ProtectRoute>
-        ),
-        loader: async ({ params }) => {
-          const res = await axiosBase.get(`/customers/${params.email}`);
-          return res.data;
-        },
-      },
-      {
-        path: '/customer-report',
-        element: <Chart />,
-      },
-      {
-        path: '/add-country',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader']}>
-            <AddCountry />
-          </ProtectRoute>
-        ),
-      },
-      {
-        path: '/manage-country',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader']}>
-            <ManageCountry />
-          </ProtectRoute>
-        ),
-        loader: () => axiosBase.get('/country'),
-      },
-      {
-        path: '/update-country/:countryId',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader']}>
-            <UpdateCountry />
-          </ProtectRoute>
-        ),
-        loader: async ({ params }) => {
-          const res = await axiosBase.get(`/country/${params.countryId}`);
-          return res.data;
-        },
-      },
-      {
-        path: '/add-category',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader']}>
-            <AddCategory />
-          </ProtectRoute>
-        ),
-      },
-      {
-        path: '/update-category/:categoryId',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader']}>
-            <UpdateCategory />
-          </ProtectRoute>
-        ),
-        loader: async ({ params }) => {
-          const res = await axiosBase.get(`/category/${params.categoryId}`);
-          return res.data;
-        },
-      },
-      {
-        path: '/manage-category',
-        element: (
-          <ProtectRoute protectedBy={['admin', 'leader']}>
-            <ManageCategory />
-          </ProtectRoute>
-        ),
-      },
-      {
-        path: '/settings',
-        element: <Settings />,
-      },
-      {
-        path: '/auth/signin',
-        element: <SignIn />,
-      },
-      {
-        path: '/auth/signup',
-        element: <SignUp />,
-      },
-      {
-        path: '/webhook-settings',
-        element: <Chart />,
+        path: '/contact/all-request',
+        element: <div>All requests page </div>,
       },
       {
         path: '/profile',

@@ -2,10 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import UserOne from '../../images/user/default_user.jpg';
-import useAuthInfo from '../../hooks/useAuthInfo';
 
 const DropdownUser = () => {
-  const { user, logOut, photo } = useAuthInfo();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef<any>(null);
@@ -47,14 +45,14 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            {user.displayName}
+            Md Naim Uddin
           </span>
-          <span className="block text-xs">{user.email}</span>
+          <span className="block text-xs">developer@gmail.com</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
           <img
-            src={user.photoURL ? photo : UserOne}
+            src={UserOne}
             alt="User"
             className="h-12 w-12 rounded-full"
           />
@@ -160,7 +158,6 @@ const DropdownUser = () => {
           </li>
         </ul>
         <button
-          onClick={() => logOut()}
           className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
         >
           <svg

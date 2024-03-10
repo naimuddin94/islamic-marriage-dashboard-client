@@ -2,32 +2,12 @@ import Breadcrumb from '../components/Breadcrumbs/Breadcrumb';
 import { FaPhoneAlt, FaSkype } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
 import { RiWhatsappFill } from 'react-icons/ri';
-import useAuthInfo from '../hooks/useAuthInfo';
 import CoverOne from '../images/cover/cover-01.png';
 import defaultUser from '../images/user/default_user.jpg';
-import { useEffect, useState } from 'react';
-import { axiosBase } from '../hooks/useAxiosSecure';
-import { ICustomer } from '../types/types';
 import { useParams } from 'react-router-dom';
 
 const ViewProfile = () => {
-  const [roleFromBackend, setRoleFromBackend] = useState();
   const params = useParams();
-
-  useEffect(() => {
-    axiosBase
-      .get(`/users/${params.email}`)
-      .then((res) => setRoleFromBackend(res.data.role));
-  }, [params.email]);
-
-  const { user } = useAuthInfo();
-  const [userInfo, setUserInfo] = useState<ICustomer | null>(null);
-
-  useEffect(() => {
-    axiosBase
-      .get(`/${roleFromBackend}s/${params.email}`)
-      .then((res) => setUserInfo(res.data as ICustomer));
-  }, [user, roleFromBackend]);
 
   return (
     <div>
@@ -46,7 +26,7 @@ const ViewProfile = () => {
           <div className="relative z-30 mx-auto -mt-22 h-30 w-full max-w-30 rounded-full bg-white/20 p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3 overflow-hidden">
             <div className="relative drop-shadow-2 w-full h-full">
               <img
-                src={userInfo ? userInfo.photo : defaultUser}
+                src={defaultUser}
                 alt="profile"
                 className="object-cover w-full h-full scale-125"
               />
@@ -54,9 +34,9 @@ const ViewProfile = () => {
           </div>
           <div className="mt-4">
             <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
-              {`${userInfo?.firstName} ${userInfo?.lastName}`}
+              MD Naim Uddin
             </h3>
-            <p className="font-medium">{roleFromBackend}</p>
+            <p className="font-medium">Admin</p>
             <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
               <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
                 <span className="font-semibold text-black dark:text-white">
@@ -82,7 +62,7 @@ const ViewProfile = () => {
               <h4 className="font-semibold text-black dark:text-white">
                 About Me
               </h4>
-              <p className="mt-4.5">{userInfo?.bio}</p>
+              <p className="mt-4.5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi iure repellendus recusandae deserunt a consequatur distinctio nobis praesentium consequuntur aperiam delectus dolorum doloribus, ipsam voluptate culpa quis dolor quibusdam!</p>
             </div>
 
             <div className="mt-6.5">
@@ -92,7 +72,7 @@ const ViewProfile = () => {
               <div className="flex items-center justify-center gap-3.5">
                 <a
                   target="_blank"
-                  href={userInfo ? `skype:${userInfo.skype}` : '#'}
+                  href={'#'}
                   className="hover:text-primary"
                   aria-label="social-icon"
                 >
@@ -100,7 +80,7 @@ const ViewProfile = () => {
                 </a>
                 <a
                   target="_blank"
-                  href={userInfo ? `mailto:${userInfo.email}` : '#'}
+                  href={'#'}
                   className="hover:text-primary"
                   aria-label="social-icon"
                 >
@@ -108,7 +88,7 @@ const ViewProfile = () => {
                 </a>
                 <a
                   target="_blank"
-                  href={userInfo ? `tel:${userInfo.phoneNumber}` : '#'}
+                  href={'#'}
                   className="hover:text-primary"
                   aria-label="social-icon"
                 >
@@ -116,7 +96,7 @@ const ViewProfile = () => {
                 </a>
                 <a
                   target="_blank"
-                  href={`https://wa.me/${userInfo ? userInfo.whatsapp : '#'}`}
+                  href={`https://wa.me/${'#'}`}
                   className="hover:text-primary"
                   aria-label="social-icon"
                 >

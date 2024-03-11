@@ -1,6 +1,5 @@
-import { FC } from 'react';
+import { ButtonHTMLAttributes, FC, InputHTMLAttributes } from 'react';
 import { Package } from './package';
-import { User, UserCredential } from 'firebase/auth';
 import { ReactNode } from 'react';
 export interface IService {
   _id?: string;
@@ -19,29 +18,8 @@ export interface IServiceProps {
   service: IService;
 }
 
-export interface AuthContextProps {
-  user: User | null;
-  loading: boolean;
-  roleLoading: boolean;
-  createUser: (email: string, password: string) => Promise<UserCredential>;
-  loginUser: (email: string, password: string) => Promise<UserCredential>;
-  signInWithGoogle: () => Promise<UserCredential>;
-  logOut: () => Promise<UserCredential>;
-  setLoading: (loading: boolean) => void;
-  name: string | undefined | null;
-  setName: (name: string | undefined | null) => void;
-  photo: string | undefined | null;
-  setPhoto: (photo: string | undefined | null) => void;
-}
-
 export interface IAuthProviderProps {
   children: ReactNode;
-}
-
-export interface IButtonProps {
-  disabled: boolean;
-  children: string;
-  icon: FC;
 }
 
 export interface ISelectGroupProps {
@@ -159,3 +137,9 @@ export interface IUpdateUserInfoInput {
   skype: string;
   bio: string;
 }
+
+export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: string;
+}
+
+

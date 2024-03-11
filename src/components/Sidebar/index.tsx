@@ -16,7 +16,6 @@ import { CgComponents, CgWebsite } from 'react-icons/cg';
 import { CiShop, CiUser } from 'react-icons/ci';
 import { GiHummingbird, GiNotebook } from 'react-icons/gi';
 import { RiHomeOfficeLine } from 'react-icons/ri';
-import SubNavigation from '../Utility/SubNavigation';
 import Navigation from '../Utility/Navigation';
 import { FaHandshakeSimple } from 'react-icons/fa6';
 import { IoIosMail, IoMdCart } from 'react-icons/io';
@@ -169,8 +168,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 label="Role Management"
                 icon={<FaCrown size={20} />}
                 subNavigationList={[
-                  'Add Group',
-                  'Group List',
+                  'Add Role',
+                  'Manage Role',
                   'Add Employee',
                   'Employee List',
                 ]}

@@ -5,6 +5,8 @@ import Profile from '../pages/Profile';
 import ViewProfile from '../pages/ViewProfile';
 import Home from '../pages/Home';
 import AddUser from '../components/Client/AddUser';
+import ClientList from '../components/Client/ClientList';
+import AddRole from '../pages/AddRole';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: '/client/add-user',
         element: <AddUser />,
+      },
+      {
+        path: '/client/user-list',
+        element: <ClientList />,
+      },
+      {
+        path: '/role-management/add-role',
+        element: <AddRole />,
       },
       {
         path: '/payments/stripe-payment',
@@ -93,7 +103,7 @@ const router = createBrowserRouter([
         element: <ViewProfile />,
       },
     ],
-  }
+  },
 ]);
 
 export default router;

@@ -8,6 +8,7 @@ import AddUser from '../components/Client/AddUser';
 import ClientList from '../components/Client/ClientList';
 import AddRole from '../pages/AddRole';
 import ManageRole from '../pages/ManageRole';
+import AddEmployee from '../pages/AddEmployee';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/role-management/manage-role',
         element: <ManageRole />,
+      },
+      {
+        path: '/role-management/add-employee',
+        element: <AddEmployee />,
       },
       {
         path: '/payments/stripe-payment',

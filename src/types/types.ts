@@ -142,4 +142,10 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: string;
 }
 
-
+export interface ISelectGroupProps {
+  label: string;
+  name: string;
+  options: string[];
+  icon: FC;
+  defaultOption?: string;
+}

@@ -44,14 +44,14 @@ const ManageRole = () => {
                 </p>
               </div>
             </div>
-            <div className="col-span-1 flex items-center">
-              <div className="flex items-center space-x-3.5">
+            <div className="col-span-1 flex items-center text-whiter dark:text-boxdark">
+              <div className="flex items-center">
                 <Link to={`/update-role/${roleName._id}`}>
-                  <button className="hover:text-primary">
-                    <FaEdit />
+                  <button className="hover:text-primary bg-blue-800 px-3 py-2.5">
+                    <FaEdit className="mt-0" />
                   </button>
                 </Link>
-                <button className="hover:text-primary">
+                <button className="hover:text-primary  bg-danger px-3 py-[9px]">
                   <svg
                     className="fill-current"
                     width="18"
@@ -78,7 +78,7 @@ const ManageRole = () => {
                     />
                   </svg>
                 </button>
-                <button className="hover:text-primary">
+                <button className="hover:text-primary  bg-warning px-3 py-2.5">
                   <LuView />
                 </button>
               </div>
